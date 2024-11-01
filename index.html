@@ -1,23 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Exercise</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Exercise</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <!-- AUDIO HTML GOES HERE -->
+    <div class="container">
+        <!-- AUDIO HTML GOES HERE -->
+        <section>
+            <h2>Audio</h2>
+            <audio controls muted loop>
+                <source src="/assets/audio/piano.wav">
+            </audio>
+        </section>
 
-    <!-- VIDEO HTML GOES HERE -->
+        <!-- VIDEO HTML GOES HERE -->
+        <section>
+            <h2>Video</h2>
+            <video width="350" controls muted poster="/assets/images/poster.jpg">
+                <source src="/assets/video/ocean.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
 
-    <!-- IMAGE MAP HTML GOES HERE-->
+        <!-- IMAGE MAP HTML GOES HERE-->
+        <section>
+            <h2>Image Map</h2>
+            <img  src="/assets/images/fruit_table.jpg" width="600" alt="fruit table" usemap="#fruits" />
+            <map name="fruits">
+                <!--Lavander-->
+                <area 
+                    shape="rect" 
+                    coords="0,600,200,200"  
+                    href="https://en.wikipedia.org/wiki/Lavandula"
+                    title="Lavander"
+                    alt="Lavender Flowers"
+                    target="_blank"
+                />
 
-    <!-- CANVAS HTML GOES HERE -->
-  </div>
+                <!--Oranges-->
+                <area
+                  shape="rect" 
+                  coords="600,670,310,300"  
+                  href="https://en.wikipedia.org/wiki/Orange_(fruit)"
+                  title="Oranges"
+                  alt="Oranges"
+                  target="_blank"
+                />
 
-  <script>
-    /* CANVAS JAVASCRIPT GOES HERE */
-  </script>
+                <!--Coffee-->
+                <area 
+                shape="circle" 
+                coords="420,200,70"
+                title="Coffee" 
+                href="https://en.wikipedia.org/wiki/Coffee" 
+                alt="coffee">
+            </map>
+        </section>
+
+        <!-- CANVAS HTML GOES HERE -->
+         <section>
+          <h2>Canvas</h2>
+          <canvas id="myCanvas" width="500" height="500"></canvas>
+          
+         </section>
+    </div>
+
+    <script>
+        /* CANVAS JAVASCRIPT GOES HERE */
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Set background color
+        ctx.fillStyle = "lightgrey";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Line 1 - Top (Red)
+        ctx.beginPath();
+        ctx.moveTo(100, 100);
+        ctx.lineTo(400, 100);
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+
+        // Line 2 - Right (Blue)
+        ctx.beginPath();
+        ctx.moveTo(400, 100);
+        ctx.lineTo(400, 400);
+        ctx.strokeStyle = "blue";
+        ctx.stroke();
+
+        // Line 3 - Bottom (Green)
+        ctx.beginPath();
+        ctx.moveTo(400, 400);
+        ctx.lineTo(100, 400);
+        ctx.strokeStyle = "green";
+        ctx.stroke();
+
+        // Line 4 - Left (Yellow)
+        ctx.beginPath();
+        ctx.moveTo(100, 400);
+        ctx.lineTo(100, 100);
+        ctx.strokeStyle = "yellow";
+        ctx.stroke();
+    </script>
 </body>
 </html>
